@@ -41,11 +41,11 @@ const studentSchema = mongoose.Schema(
       required: true,
     },
     DOB: {
-      type: String,
+      type: Date,
       required: true,
     },
     DOJ: {
-      type: String,
+      type: Date,
       required: true,
     },
     status: {

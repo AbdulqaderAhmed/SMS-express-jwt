@@ -23,7 +23,7 @@ const teacherSchema = mongoose.Schema(
       required: true,
     },
     DOB: {
-      type: String,
+      type: Date,
       required: true,
     },
     phone: {
