@@ -14,6 +14,7 @@ import { subject } from "./src/routers/admin/subjectRoute.js";
 import { attendance } from "./src/routers/admin/attendanceRoute.js";
 import { examType } from "./src/routers/admin/examTypeRoute.js";
 import { exam } from "./src/routers/admin/examRoute.js";
+import { examResult } from "./src/routers/admin/examResultRoute.js";
 
 dbConnection();
 
@@ -37,6 +38,7 @@ app.use("/api/admin/subject", subject);
 app.use("/api/admin/attendance", attendance);
 app.use("/api/admin/examType", examType);
 app.use("/api/admin/exam", exam);
+app.use("/api/admin/examResult", examResult);
 
 app.use(errorHandler);
 
