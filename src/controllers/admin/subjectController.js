@@ -1,6 +1,11 @@
 import expressAsyncHandler from "express-async-handler";
 import { Subject } from "../../models/subjectModel.js";
 
+export const getAllSubject = expressAsyncHandler(async (req, res) => {
+  const subjects = await Subject.find();
+  res.json(subjects);
+});
+
 export const createSubject = expressAsyncHandler(async (req, res) => {
   const { grade_id, name, description } = req.body;
   if (!grade_id || !name || !description) {
@@ -11,7 +16,10 @@ export const createSubject = expressAsyncHandler(async (req, res) => {
   const availableName = await Subject.findOne({ name });
   if (availableName) {
     res.status(409);
-    throw new Error("Subject already exists!");
+    throw new Error("Subject already exists for this class!");
+  } else if (grade_id === availableName.grade_id) {
+    res.status(409);
+    throw new Error("Subject already exists for this class!");
   } else {
     const subject = await Subject.create({
       grade_id,

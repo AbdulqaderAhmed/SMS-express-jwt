@@ -10,7 +10,6 @@ export const subjectSchema = mongoose.Schema(
     name: {
       type: String,
       required: true,
-      unique: true,
     },
     description: {
       type: String,

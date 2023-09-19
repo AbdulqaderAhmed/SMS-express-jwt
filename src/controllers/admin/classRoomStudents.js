@@ -1,6 +1,11 @@
 import expressAsyncHandler from "express-async-handler";
 import { classRoomStudent } from "../../models/classRoomStudentModel.js";
 
+export const getAllRoomStudent = expressAsyncHandler(async (req, res) => {
+  const room = await classRoomStudent.find();
+  res.json(room);
+});
+
 export const createStudentClass = expressAsyncHandler(async (req, res) => {
   const { student_id, classRoom_id } = req.body;
   if (!student_id || !classRoom_id) {

@@ -9,5 +9,5 @@ export const teacher = express.Router();
 
 teacher.use(tokenValidation);
 
-teacher.post("/register", register);
+teacher.post("/create", register);
 teacher.put("/:id", updateTeacher);

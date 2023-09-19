@@ -90,7 +90,7 @@ export const updateParent = expressAsyncHandler(async (req, res) => {
   const { id } = req.params;
   const editParent = await Parent.findByIdAndUpdate(id, req.body);
 
-  if (!editStudent) {
+  if (!editParent) {
     res.status(404);
     throw new Error("Student not found!");
   } else {

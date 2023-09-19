@@ -2,7 +2,12 @@ import expressAsyncHandler from "express-async-handler";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { Student } from "../../models/studentModel.js";
-import { Parent } from "../../models/parentModel.js";
+import { json } from "express";
+
+export const getAllStudent = expressAsyncHandler(async (req, res) => {
+  const students = await Student.find();
+  res.json(students);
+});
 
 export const register = expressAsyncHandler(async (req, res) => {
   const {

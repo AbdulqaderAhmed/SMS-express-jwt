@@ -9,5 +9,5 @@ export const parent = express.Router();
 
 parent.use(tokenValidation);
 
-parent.post("/register", register);
+parent.post("/create", register);
 parent.put("/:id", updateParent);
