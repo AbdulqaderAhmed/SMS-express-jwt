@@ -1,7 +1,8 @@
-import express from "express";
+import express, { request } from "express";
 import "dotenv/config";
 import cors from "cors";
-import { dbConnection } from "./config/dbConnection.js";
+import IP from "ip";
+import { dbConnectionOne, dbConnectionTwo } from "./config/dbConnection.js";
 import { admin } from "./src/routers/admin/adminRoute.js";
 import { student } from "./src/routers/admin/studentRoute.js";
 import { parent } from "./src/routers/admin/parentRoute.js";
@@ -16,7 +17,7 @@ import { examType } from "./src/routers/admin/examTypeRoute.js";
 import { exam } from "./src/routers/admin/examRoute.js";
 import { examResult } from "./src/routers/admin/examResultRoute.js";
 
-dbConnection();
+IP.address() === "10.195.19.28" ? dbConnectionTwo() : dbConnectionOne();
 
 const PORT = process.env.SERVER_PORT;
 const app = express();
