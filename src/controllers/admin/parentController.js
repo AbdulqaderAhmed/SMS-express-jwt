@@ -5,7 +5,7 @@ import { Parent } from "../../models/parentModel.js";
 
 export const Allparent = expressAsyncHandler(async(req, res) => {
   const parent = await Parent.find()
-  return response.json(parent)
+  return res.json(parent)
 })
 
 export const register = expressAsyncHandler(async (req, res) => {
