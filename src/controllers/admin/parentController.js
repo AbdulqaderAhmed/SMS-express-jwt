@@ -29,7 +29,7 @@ export const register = expressAsyncHandler(async (req, res) => {
 
   if (avalableUsername) {
     res.status(409);
-    throw new Error("Email already in use!");
+    throw new Error("Username already in use!");
   } else if (avalablePhone) {
     res.status(409);
     throw new Error("Phone number already in use!");
