@@ -3,6 +3,11 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { Parent } from "../../models/parentModel.js";
 
+export const Allparent = expressAsyncHandler(async(req, res) => {
+  const parent = await Parent.find()
+  return response.json(parent)
+})
+
 export const register = expressAsyncHandler(async (req, res) => {
   const { firstName, middleName, lastName, username, password, phone, DOB } =
     req.body;
