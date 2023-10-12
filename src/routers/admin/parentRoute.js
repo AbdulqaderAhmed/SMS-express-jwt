@@ -10,6 +10,6 @@ export const parent = express.Router();
 
 parent.use(tokenValidation);
 
-parent.get('/parent', Allparent)
+parent.get('/', Allparent)
 parent.post("/create", register);
 parent.put("/:id", updateParent);
